@@ -36,8 +36,10 @@ public class Cell {
             if (seed[xPosition - 1][yPosition].state.equals("X"))
                 numberOfLiveCellNeighbours++;
 
-            if (seed[xPosition - 1][yPosition + 1].state.equals("X"))
-                numberOfLiveCellNeighbours++;
+            if(yPosition != seed.length - 1) {
+                if (seed[xPosition - 1][yPosition + 1].state.equals("X"))
+                    numberOfLiveCellNeighbours++;
+            }
         }
 
         if (yPosition != 0) {
@@ -45,8 +47,10 @@ public class Cell {
                 numberOfLiveCellNeighbours++;
         }
 
-        if (seed[xPosition][yPosition + 1].state.equals("X"))
-            numberOfLiveCellNeighbours++;
+        if(yPosition != seed.length - 1) {
+            if (seed[xPosition][yPosition + 1].state.equals("X"))
+                numberOfLiveCellNeighbours++;
+        }
 
         if (xPosition != seed.length - 1) {
             if(yPosition != 0) {
@@ -57,8 +61,10 @@ public class Cell {
             if (seed[xPosition + 1][yPosition].state.equals("X"))
                 numberOfLiveCellNeighbours++;
 
-            if (seed[xPosition + 1][yPosition + 1].state.equals("X"))
-                numberOfLiveCellNeighbours++;
+            if(yPosition != seed.length - 1) {
+                if (seed[xPosition + 1][yPosition + 1].state.equals("X"))
+                    numberOfLiveCellNeighbours++;
+            }
         }
         return numberOfLiveCellNeighbours;
     }
