@@ -142,4 +142,13 @@ public class CellTest {
 
         assertEquals(1, cell.numberOfLiveCellNeighbours(seed));
     }
+
+    @Test
+    public void shouldNotConsiderBottomRowAsNeighboursIfCellBeingCheckedIsInBottomRow() {
+        Cell seed[][] = {{new Cell("-", 0, 0), new Cell("-", 0, 1), new Cell("-", 0, 2)}, {new Cell("-", 1, 0), new Cell("X", 1, 1), new Cell("-", 1, 2)},
+                {new Cell("-", 2, 0), new Cell("X", 2, 1), new Cell("0", 2, 2)}};
+        Cell cell = new Cell("-", 2, 1);
+
+        assertEquals(1, cell.numberOfLiveCellNeighbours(seed));
+    }
 }
