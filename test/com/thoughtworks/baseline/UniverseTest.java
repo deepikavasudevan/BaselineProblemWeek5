@@ -12,6 +12,6 @@ public class UniverseTest {
         Universe universe = new Universe(seed);
         Cell newGeneration[][] = {{new Cell("X"), new Cell("X")}, {new Cell("X"), new Cell("X")}};
 
-        assertArrayEquals(newGeneration, universe.newGeneration());
+        assertArrayEquals(seed, universe.newGeneration());
     }
 }
