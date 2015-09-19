@@ -10,7 +10,7 @@ public class Cell {
     }
 
     public String newState(int numberOfLiveCelledNeighbours) {
-        if(state.equals("X")) {
+        if(state.equals("X") && numberOfLiveCelledNeighbours == 1) {
             state = "-";
         }
         return state;

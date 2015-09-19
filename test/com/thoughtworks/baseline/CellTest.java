@@ -19,4 +19,11 @@ public class CellTest {
 
         assertEquals("-", cell.newState(3));
     }
+
+    @Test
+    public void shouldCheckIfCurrentStateIsAliveAndMakeTheCellDeadIfItHasOneLiveNeighbour() {
+        Cell cell = new Cell("X");
+
+        assertEquals("-", cell.newState(1));
+    }
 }
