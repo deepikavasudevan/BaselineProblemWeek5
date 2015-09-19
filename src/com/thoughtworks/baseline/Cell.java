@@ -11,7 +11,7 @@ public class Cell {
 
     public String newState(int numberOfLiveCelledNeighbours) {
         if (state.equals("X")) {
-            if (numberOfLiveCelledNeighbours == 1 || numberOfLiveCelledNeighbours == 0)
+            if (numberOfLiveCelledNeighbours < 2)
                 state = "-";
         }
         return state;
