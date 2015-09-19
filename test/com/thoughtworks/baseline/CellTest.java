@@ -40,4 +40,11 @@ public class CellTest {
 
         assertEquals("-", cell.newState(5));
     }
+
+    @Test
+    public void shouldCheckIfCurrentStateIsAliveAndLeaveItAliveIfItHasTwoNeighbours() {
+        Cell cell = new Cell("X");
+
+        assertEquals("X", cell.newState(2));
+    }
 }
