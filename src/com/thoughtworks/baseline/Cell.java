@@ -13,9 +13,10 @@ public class Cell {
         if (state.equals("X")) {
             if (numberOfLiveCelledNeighbours < 2 || numberOfLiveCelledNeighbours > 3)
                 state = "-";
+        } else {
+            if (numberOfLiveCelledNeighbours == 3)
+                state = "X";
         }
-        else
-            state = "X";
         return state;
     }
 }
