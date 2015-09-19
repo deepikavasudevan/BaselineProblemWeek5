@@ -4,14 +4,12 @@ package com.thoughtworks.baseline;
 public class Cell {
 
     private String state;
-    private int numberOfLiveCellNeighbours;
 
-    public Cell(String state, int numberOfLiveCellNeighbours) {
+    public Cell(String state) {
         this.state = state;
-        this.numberOfLiveCellNeighbours = numberOfLiveCellNeighbours;
     }
 
-    public String newState() {
+    public String newState(int numberOfLiveCellNeighbours) {
         if (state.equals("X")) {
             if (numberOfLiveCellNeighbours < 2 || numberOfLiveCellNeighbours > 3)
                 state = "-";

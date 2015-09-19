@@ -8,57 +8,57 @@ public class CellTest {
 
     @Test
     public void shouldCheckIfTheCurrentStateIsAliveOrDead() {
-        Cell cell = new Cell("X", 5);
+        Cell cell = new Cell("X");
 
-        assertEquals("-", cell.newState());
+        assertEquals("-", cell.newState(5));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndMakeTheCellDeadIfItHasOneLiveNeighbour() {
-        Cell cell = new Cell("X", 1);
+        Cell cell = new Cell("X");
 
-        assertEquals("-", cell.newState());
+        assertEquals("-", cell.newState(1));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndMakeTheCellDeadIfItHasNoLiveNeighbours() {
-        Cell cell = new Cell("X", 0);
+        Cell cell = new Cell("X");
 
-        assertEquals("-", cell.newState());
+        assertEquals("-", cell.newState(0));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndMakeTheCellDeadIfHasMoreThanThreeLiveNeighbours() {
-        Cell cell = new Cell("X", 5);
+        Cell cell = new Cell("X");
 
-        assertEquals("-", cell.newState());
+        assertEquals("-", cell.newState(5));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndLeaveItAliveIfItHasTwoNeighbours() {
-        Cell cell = new Cell("X", 2);
+        Cell cell = new Cell("X");
 
-        assertEquals("X", cell.newState());
+        assertEquals("X", cell.newState(2));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndLeaveItAliveIfItHasThreeNeighbours() {
-        Cell cell = new Cell("X", 3);
+        Cell cell = new Cell("X");
 
-        assertEquals("X", cell.newState());
+        assertEquals("X", cell.newState(3));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsDeadAndMakeTheCellAliveIfItHasThreeLiveNeighbours() {
-        Cell cell = new Cell("-", 3);
+        Cell cell = new Cell("-");
 
-        assertEquals("X", cell.newState());
+        assertEquals("X", cell.newState(3));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsDeadAndLeaveItDeadIfItDoesNotHaveThreeLiveNeighbours() {
-        Cell cell = new Cell("-", 1);
+        Cell cell = new Cell("-");
 
-        assertEquals("-", cell.newState());
+        assertEquals("-", cell.newState(1));
     }
 }

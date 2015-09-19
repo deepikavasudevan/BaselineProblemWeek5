@@ -8,9 +8,9 @@ public class UniverseTest {
 
     @Test
     public void shouldCreateANewGeneration() {
-        Cell seed[][] = {{new Cell("X", 3), new Cell("X", 3)}, {new Cell("X", 3), new Cell("X", 3)}};
+        Cell seed[][] = {{new Cell("X"), new Cell("X")}, {new Cell("X"), new Cell("X")}};
         Universe universe = new Universe(seed);
-        Cell newGeneration[][] = {{new Cell("X", 3), new Cell("X", 3)}, {new Cell("X", 3), new Cell("X", 3)}};
+        Cell newGeneration[][] = {{new Cell("X"), new Cell("X")}, {new Cell("X"), new Cell("X")}};
 
         assertArrayEquals(newGeneration, universe.newGeneration());
     }
