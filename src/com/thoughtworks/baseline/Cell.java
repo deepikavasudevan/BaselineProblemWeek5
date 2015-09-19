@@ -25,6 +25,11 @@ public class Cell {
     }
 
     public int numberOfLiveCellNeighbours(Cell[][] seed) {
-        return 2;
+        int numberOfLiveCellNeighbours = 0;
+
+        if (seed[xPosition - 1][yPosition - 1].state.equals("X"))
+            numberOfLiveCellNeighbours++;
+
+        return numberOfLiveCellNeighbours;
     }
 }
