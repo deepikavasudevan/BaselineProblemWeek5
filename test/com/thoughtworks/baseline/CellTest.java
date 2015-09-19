@@ -3,6 +3,7 @@ package com.thoughtworks.baseline;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class CellTest {
 
@@ -10,56 +11,56 @@ public class CellTest {
     public void shouldCheckIfTheCurrentStateIsAliveOrDead() {
         Cell cell = new Cell("X", 0, 0);
 
-        assertEquals("-", cell.newState(5));
+        assertEquals(new Cell("-", 0, 0), cell.withNewState(5));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndMakeTheCellDeadIfItHasOneLiveNeighbour() {
         Cell cell = new Cell("X", 0, 0);
 
-        assertEquals("-", cell.newState(1));
+        assertEquals(new Cell("-", 0, 0), cell.withNewState(1));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndMakeTheCellDeadIfItHasNoLiveNeighbours() {
         Cell cell = new Cell("X", 0, 0);
 
-        assertEquals("-", cell.newState(0));
+        assertEquals(new Cell("-", 0, 0), cell.withNewState(0));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndMakeTheCellDeadIfHasMoreThanThreeLiveNeighbours() {
         Cell cell = new Cell("X", 0, 0);
 
-        assertEquals("-", cell.newState(5));
+        assertEquals(new Cell("-", 0, 0), cell.withNewState(5));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndLeaveItAliveIfItHasTwoNeighbours() {
         Cell cell = new Cell("X", 0, 0);
 
-        assertEquals("X", cell.newState(2));
+        assertEquals(new Cell("X", 0, 0), cell.withNewState(2));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsAliveAndLeaveItAliveIfItHasThreeNeighbours() {
         Cell cell = new Cell("X", 0, 0);
 
-        assertEquals("X", cell.newState(3));
+        assertEquals(new Cell("X", 0, 0), cell.withNewState(3));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsDeadAndMakeTheCellAliveIfItHasThreeLiveNeighbours() {
         Cell cell = new Cell("X", 0, 0);
 
-        assertEquals("X", cell.newState(3));
+        assertEquals(new Cell("X", 0, 0), cell.withNewState(3));
     }
 
     @Test
     public void shouldCheckIfCurrentStateIsDeadAndLeaveItDeadIfItDoesNotHaveThreeLiveNeighbours() {
         Cell cell = new Cell("X", 0, 0);
 
-        assertEquals("-", cell.newState(1));
+        assertEquals(new Cell("-", 0, 0), cell.withNewState(1));
     }
 
     @Test
@@ -176,5 +177,82 @@ public class CellTest {
         Cell cell = new Cell("X", 0, 0);
 
         assertEquals(3, cell.numberOfLiveCellNeighbours(seed));
+    }
+
+    @Test
+    public void shouldNotBeEqualToNull() {
+        Cell cell = new Cell("X", 0, 0);
+
+        assertNotEquals(cell, null);
+    }
+
+    @Test
+    public void shouldBeOfTypeCell() {
+        Cell cell = new Cell("X", 0, 0);
+
+        assertNotEquals(cell, "This is not a valid object");
+    }
+
+    @Test
+    public void shouldBeEqualToItself() {
+        Cell cell = new Cell("X", 0, 0);
+
+        assertEquals(cell, cell);
+    }
+
+    @Test
+    public void shouldNotBeEqualIfItHasTheSameStateButNotTheSamePosition() {
+        Cell cell1 = new Cell("X", 0, 0);
+        Cell cell2 = new Cell("X", 1, 1);
+
+        assertNotEquals(cell1, cell2);
+    }
+
+    @Test
+    public void shouldNotBeEqualIfItHasTheSameXPositionButNotTheSameStateOrYPosition() {
+        Cell cell1 = new Cell("X", 1, 0);
+        Cell cell2 = new Cell("-", 1, 1);
+
+        assertNotEquals(cell1, cell2);
+    }
+
+    @Test
+    public void shouldNotBeEqualIfItHasTheSameYPositionButNotTheSameStateOrXPosition() {
+        Cell cell1 = new Cell("X", 0, 1);
+        Cell cell2 = new Cell("-", 1, 1);
+
+        assertNotEquals(cell1, cell2);
+    }
+
+    @Test
+    public void shouldNotBeEqualIfItHasTheSameXAndYPositionButNotTheSameState() {
+        Cell cell1 = new Cell("X", 1, 1);
+        Cell cell2 = new Cell("-", 1, 1);
+
+        assertNotEquals(cell1, cell2);
+    }
+
+    @Test
+    public void shouldNotBeEqualIfItHasTheSameStateAndYPositionButNotTheSameXPosition() {
+        Cell cell1 = new Cell("X", 1, 1);
+        Cell cell2 = new Cell("X", 0, 1);
+
+        assertNotEquals(cell1, cell2);
+    }
+
+    @Test
+    public void shouldNotBeEqualIfItHasTheSameStateAndXPositionButNotTheSameYPosition() {
+        Cell cell1 = new Cell("X", 1, 0);
+        Cell cell2 = new Cell("X", 1, 1);
+
+        assertNotEquals(cell1, cell2);
+    }
+
+    @Test
+    public void shouldBeEqualIfItHasTheSameStateAndPosition() {
+        Cell cell1 = new Cell("X", 1, 1);
+        Cell cell2 = new Cell("X", 1, 1);
+
+        assertEquals(cell1, cell2);
     }
 }

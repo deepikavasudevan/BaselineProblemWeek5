@@ -13,7 +13,7 @@ public class Cell {
         this.yPosition = yPosition;
     }
 
-    public String newState(int numberOfLiveCellNeighbours) {
+    public Cell withNewState(int numberOfLiveCellNeighbours) {
         if (state.equals("X")) {
             if (numberOfLiveCellNeighbours < 2 || numberOfLiveCellNeighbours > 3)
                 state = "-";
@@ -21,7 +21,7 @@ public class Cell {
             if (numberOfLiveCellNeighbours == 3)
                 state = "X";
         }
-        return state;
+        return new Cell(state, xPosition, yPosition);
     }
 
     public int numberOfLiveCellNeighbours(Cell[][] seed) {
@@ -68,5 +68,17 @@ public class Cell {
         }
 
         return numberOfLiveCellNeighbours;
+    }
+
+    @Override
+    public boolean equals(Object that){
+        if(that != null && that.getClass() == this.getClass()) {
+            Cell thatCell = (Cell) that;
+
+            if(this == that || (this.state.equals(thatCell.state) && this.xPosition == thatCell.xPosition
+                    && this.yPosition == thatCell.yPosition))
+                return true;
+        }
+        return false;
     }
 }
