@@ -3,10 +3,14 @@ package com.thoughtworks.baseline;
 
 public class Cell {
 
+    private int yPosition;
+    private int xPosition;
     private String state;
 
-    public Cell(String state) {
+    public Cell(String state, int xPosition, int yPosition) {
         this.state = state;
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
     }
 
     public String newState(int numberOfLiveCellNeighbours) {
