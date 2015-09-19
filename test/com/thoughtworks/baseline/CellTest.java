@@ -7,13 +7,6 @@ import static org.junit.Assert.assertEquals;
 public class CellTest {
 
     @Test
-    public void shouldHaveANewStateOnComparingItWithTheStatesOfItsNeighbours() {
-        Cell cell = new Cell("X");
-
-        assertEquals("X", cell.newState(3));
-    }
-
-    @Test
     public void shouldCheckIfTheCurrentStateIsAliveOrDead() {
         Cell cell = new Cell("X");
 
@@ -46,5 +39,12 @@ public class CellTest {
         Cell cell = new Cell("X");
 
         assertEquals("X", cell.newState(2));
+    }
+
+    @Test
+    public void shouldCheckIfCurrentStateIsAliveAndLeaveItAliveIfItHasThreeNeighbours() {
+        Cell cell = new Cell("X");
+
+        assertEquals("X", cell.newState(3));
     }
 }
