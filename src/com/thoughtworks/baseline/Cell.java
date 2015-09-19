@@ -14,6 +14,8 @@ public class Cell {
             if (numberOfLiveCelledNeighbours < 2 || numberOfLiveCelledNeighbours > 3)
                 state = "-";
         }
+        else
+            state = "X";
         return state;
     }
 }
