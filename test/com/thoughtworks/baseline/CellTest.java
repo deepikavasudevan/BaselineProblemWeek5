@@ -10,7 +10,7 @@ public class CellTest {
     public void shouldCheckIfTheCurrentStateIsAliveOrDead() {
         Cell cell = new Cell("X");
 
-        assertEquals("-", cell.newState(3));
+        assertEquals("-", cell.newState(5));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class CellTest {
     }
 
     @Test
-    public void shouldCheckIfCurrentStateIsDeadAndMakeTheCellDeadIfItHasThreeLiveNeighbours() {
+    public void shouldCheckIfCurrentStateIsDeadAndMakeTheCellAliveIfItHasThreeLiveNeighbours() {
         Cell cell = new Cell("-");
 
         assertEquals("X", cell.newState(3));
