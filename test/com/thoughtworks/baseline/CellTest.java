@@ -12,4 +12,11 @@ public class CellTest {
 
         assertEquals("X", cell.newState(3));
     }
+
+    @Test
+    public void shouldCheckIfTheCurrentStateIsAliveOrDead() {
+        Cell cell = new Cell("X");
+
+        assertEquals("-", cell.newState(3));
+    }
 }
