@@ -27,14 +27,16 @@ public class Cell {
     public int numberOfLiveCellNeighbours(Cell[][] seed) {
         int numberOfLiveCellNeighbours = 0;
 
-        if (seed[xPosition - 1][yPosition - 1].state.equals("X"))
-            numberOfLiveCellNeighbours++;
+        if (xPosition != 0) {
+            if (seed[xPosition - 1][yPosition - 1].state.equals("X"))
+                numberOfLiveCellNeighbours++;
 
-        if (seed[xPosition - 1][yPosition].state.equals("X"))
-            numberOfLiveCellNeighbours++;
+            if (seed[xPosition - 1][yPosition].state.equals("X"))
+                numberOfLiveCellNeighbours++;
 
-        if (seed[xPosition - 1][yPosition + 1].state.equals("X"))
-            numberOfLiveCellNeighbours++;
+            if (seed[xPosition - 1][yPosition + 1].state.equals("X"))
+                numberOfLiveCellNeighbours++;
+        }
 
         if (seed[xPosition][yPosition - 1].state.equals("X"))
             numberOfLiveCellNeighbours++;
@@ -48,7 +50,7 @@ public class Cell {
         if (seed[xPosition + 1][yPosition].state.equals("X"))
             numberOfLiveCellNeighbours++;
 
-        if (seed[xPosition +1][yPosition + 1].state.equals("X"))
+        if (seed[xPosition + 1][yPosition + 1].state.equals("X"))
             numberOfLiveCellNeighbours++;
 
         return numberOfLiveCellNeighbours;
