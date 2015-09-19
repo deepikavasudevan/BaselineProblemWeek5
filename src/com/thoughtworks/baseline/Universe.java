@@ -3,13 +3,13 @@ package com.thoughtworks.baseline;
 
 public class Universe {
 
-    private String[][] seed;
+    private Cell[][] seed;
 
-    public Universe(String[][] seed) {
+    public Universe(Cell[][] seed) {
         this.seed = seed;
     }
 
-    public String[][] newGeneration() {
+    public Cell[][] newGeneration() {
         return seed;
     }
 }
