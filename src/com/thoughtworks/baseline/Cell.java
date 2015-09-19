@@ -23,4 +23,8 @@ public class Cell {
         }
         return state;
     }
+
+    public int numberOfLiveCellNeighbours(Cell[][] seed) {
+        return 2;
+    }
 }

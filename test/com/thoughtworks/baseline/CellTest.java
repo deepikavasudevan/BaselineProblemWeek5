@@ -61,4 +61,12 @@ public class CellTest {
 
         assertEquals("-", cell.newState(1));
     }
+    
+    @Test
+    public void shouldGetTheNumberOfItsLiveCellNeighboursInTheSeed() {
+        Cell seed[][] = {{new Cell("X", 0, 0), new Cell("X", 0, 1)}, {new Cell("X", 1, 0), new Cell("X", 1, 1)}};
+        Cell cell = new Cell("X", 0, 0);
+
+        assertEquals(2, cell.numberOfLiveCellNeighbours(seed));
+    }
 }
