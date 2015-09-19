@@ -42,7 +42,6 @@ public class Cell {
                 numberOfLiveCellNeighbours++;
         }
 
-
         if (yPosition != 0) {
             if (seed[xPosition][yPosition - 1].state.equals("X"))
                 numberOfLiveCellNeighbours++;
